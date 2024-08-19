@@ -217,7 +217,7 @@ router.push("/evaluation")
             />
           </div>
           <div className="md:flex justify-center xl:justify-start">
-            <button className="flex   items-center justify-center text-white w-auto rounded-full p-2 max-sm:w-full pr-[1.4rem] text-center gap-x-2 bg-primary500">
+            <button className="flex   items-center justify-center hover:bg-primary700 text-white w-auto rounded-full p-2 max-sm:w-full pr-[1.4rem] text-center gap-x-2 bg-primary500">
               <div className="relative aspect-square">
                 <Image
                   src="/star1.png"

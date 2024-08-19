@@ -2,6 +2,6 @@ import React from 'react'
 
 export default function Loading() {
   return (
-    <div>loading.....</div>
+    <div className='min-h-screen grid place-items-center'>loading.....</div>
   )
 }
