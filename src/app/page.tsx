@@ -1,6 +1,6 @@
 import CourseWorkForm from '@/components/CourseWorkForm';
 import MyCourseWork from '@/components/MyCourseWork';
-import TabbedSection from '@/components/TabbedSection';
+import  MyTabs from '@/components/TabbedSection';
 import Image from 'next/image';
 import React from 'react'
 
@@ -8,36 +8,41 @@ import React from 'react'
 export default function Page() {
   const className = " w-[90vw]  m-auto";
   return (
-    <article className="xl:grid mt-14 grid-cols-[1fr,300px] xl:px-20 gap-x-4 ">
-      <div className={`${className} md:w-[700px] xl:w-full`}>
-        <h2 className="font-semibold text-2xl ">
-          Hey IB Folks ! Unsure about the quality of your answers?{" "}
-          <span className="text-brand500">We get you.</span>
-        </h2>
-
-        <CourseWorkForm />
-        <h2 className="text-primary700 font-[500] capitalize ">
+    <article className=" mt-[6.5rem]  xl:px-20 gap-x-4 ">
+      <div className={`${className} max-md:max-w-[800px] xl:w-full px-2`}>
+        <div className="xl:flex gap-x-11 justify-between">
+          <CourseWorkForm />
+          <Image
+            src="/toy.png"
+            alt="toyimage"
+            width={300}
+            height={300}
+            className="hidden mb-[1rem] object-cover xl:block"
+          />
+        </div>
+        <h3 className="text-primary700  mt-8 mb-0 font-[500] capitalize ">
           my coursework
-        </h2>
-        
+        </h3>
+        <div className="md:grid gap-x-4 grid-cols-2 xl:grid xl:grid-cols-2">
           <MyCourseWork />
           <MyCourseWork />
-        
-        <h3 className="text-primary700 text-center md:hidden">view all</h3>
-     
-        {/* <div className='flex items-center gap-x-11'> */}
-        {/* </div> */}
-        <TabbedSection/>
-        <MyCourseWork />
-        <MyCourseWork />
+        </div>
+        <h3 className="text-primary700 text-center text-[1.5rem] mb-14">
+          view all
+        </h3>
+
+        {/* <TabbedSection /> */}
+        <div>
+          <MyTabs />
+        </div>
       </div>
-      <Image
+      {/* <Image
         src="/toy.png"
         alt="toyimage"
         width={300}
         height={400}
         className="hidden object-cover xl:block"
-      />
+      /> */}
     </article>
   );
 }
