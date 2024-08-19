@@ -22,6 +22,7 @@ import { zoomPlugin } from '@react-pdf-viewer/zoom';
 import "@react-pdf-viewer/core/lib/styles/index.css";
 import "@react-pdf-viewer/default-layout/lib/styles/index.css";
 import {  getCurrentDateString } from "@/utils/utils";
+import { ProgressBar } from '@/components/ProgressBar';
 // Setting the worker source
 
 export default function Evaluationpage() {
@@ -392,34 +393,8 @@ async function extractTextFromPDF(pdfArray: Uint8Array): Promise<string> {
   return textContent;
 }
 
-interface ProgressBarProps {
-  score: number | undefined;
-  total: number | null;
-}
 
- export const ProgressBar: React.FC<ProgressBarProps> = ({ score, total }) => {
-  // Default to 0 if score or total is null
-  const actualScore = score ?? 0;
-  const actualTotal = total ?? 1; // Avoid div ision by zero
-  
-  // Calculate percentage
-  const percentage = (actualScore / actualTotal) * 100;
 
-  return (
-    <div style={{ width: "80px", height: "80px" }}>
-      <CircularProgressbar
-        value={percentage}
-        text={`${actualScore}/${actualTotal}`}
-        styles={buildStyles({
-          pathColor: "#22c55e",
-          textColor: "#333",
-          trailColor: "#e0e0e0",
-          strokeLinecap: "round",
-        })}
-      />
-    </div>
-  );
-};
 
 
 interface ScoreDetails {
