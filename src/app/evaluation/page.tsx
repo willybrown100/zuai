@@ -505,6 +505,6 @@ function CriteriaComponent(){
       },
     ];
   return <div>
-  {criterias.map((item,i)=><CriteriaItem curOpen={curOpen} num={i} onOpen={setCurOpen} item={item}/>)}
+  {criterias.map((item,i)=><CriteriaItem curOpen={curOpen} num={i} onOpen={setCurOpen} key={item.title} item={item}/>)}
   </div>
 }
