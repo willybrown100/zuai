@@ -1,5 +1,6 @@
-import { ProgressBar } from '@/app/evaluation/page';
+
 import React from 'react'
+import { ProgressBar } from './ProgressBar';
 
 interface criterion {
   title: string;
