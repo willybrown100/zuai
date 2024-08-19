@@ -19,6 +19,9 @@ import '@react-pdf-viewer/core/lib/styles/index.css';
 import '@react-pdf-viewer/default-layout/lib/styles/index.css';
 import { toolbarPlugin } from '@react-pdf-viewer/toolbar';
 import { zoomPlugin } from '@react-pdf-viewer/zoom';
+import "@react-pdf-viewer/core/lib/styles/index.css";
+import "@react-pdf-viewer/default-layout/lib/styles/index.css";
+import { base64ToBlob } from "@/utils/utils";
 // Setting the worker source
 
 export default function Evaluationpage() {
@@ -91,7 +94,7 @@ extractTextFromPDF(pdfData);
         console.error("Failed to parse or retrieve PDF data:", error);
       }
     }
-  }, []);
+  }, [criteriaA,criteriaB,criteriaC,overAllScore]);
 
 
   return (
@@ -359,18 +362,6 @@ const handleToggle=function(){
 
 // =======================
 
-import '@react-pdf-viewer/core/lib/styles/index.css';
-import '@react-pdf-viewer/default-layout/lib/styles/index.css';
-import { base64ToBlob } from '@/utils/utils';
-
-
-
-
-
-
-
-
-
 // Function to convert Base64 string to Uint8Array
 export function base64ToUint8Array(base64: string): Uint8Array {
   const binaryString = atob(base64);
@@ -400,19 +391,6 @@ async function extractTextFromPDF(pdfArray: Uint8Array): Promise<string> {
 
   return textContent;
 }
-
-// async function extractNumbersFromPDF(pdfArray: Uint8Array): Promise<number[]> {
-//   const textContent = await extractTextFromPDF(pdfArray);
-  
-//   // Use a regular expression to find all numbers in the text
-//   const numberMatches = textContent.match(/\d+/g);
-
-//   // Convert the matches to numbers
-//   const numbers = numberMatches ? numberMatches.map(Number) : [];
-
-//   return numbers;
-// }
-
 
 interface ProgressBarProps {
   score: number | undefined;
