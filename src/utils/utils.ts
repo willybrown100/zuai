@@ -21,3 +21,16 @@ export function base64ToBlob(base64: string, mimeType: string): Blob {
   const byteArray = new Uint8Array(byteNumbers);
   return new Blob([byteArray], { type: mimeType });
 }
+export function getCurrentDateString() {
+    const today = new Date();
+
+    const day = String(today.getDate()).padStart(2, '0');
+    const month = String(today.getMonth() + 1).padStart(2, '0'); // getMonth() returns 0-11, so add 1 for the correct month
+    const year = today.getFullYear();
+
+    return `${day} ${month} ${year}`;
+}
+
+// Example usage:
+const currentDate = getCurrentDateString();
+console.log(currentDate); // "19/08/2024"

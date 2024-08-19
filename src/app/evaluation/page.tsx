@@ -21,7 +21,7 @@ import { toolbarPlugin } from '@react-pdf-viewer/toolbar';
 import { zoomPlugin } from '@react-pdf-viewer/zoom';
 import "@react-pdf-viewer/core/lib/styles/index.css";
 import "@react-pdf-viewer/default-layout/lib/styles/index.css";
-import { base64ToBlob } from "@/utils/utils";
+import { base64ToBlob, getCurrentDateString } from "@/utils/utils";
 // Setting the worker source
 
 export default function Evaluationpage() {
@@ -44,7 +44,7 @@ export default function Evaluationpage() {
   console.log(criteriaA, criteriaB,criteriaC,overAllScore);
   const totalScore = overAllScore;
   const date  =new Date()
-  console.log(pdfUrl,date.getDate());
+  const day =date.getDate();
   // Now you can use pdfjsLib to load PDFs
   useEffect(() => {
     // Step 1: Retrieve the stringified object from local storage
@@ -96,7 +96,8 @@ extractTextFromPDF(pdfData);
     }
   }, [criteriaA,criteriaB,criteriaC,overAllScore]);
 
-
+const currentDate = getCurrentDateString();
+console.log(JSON.stringify(currentDate))
   return (
     <div className='" px-4 mt-16 m-auto py-10 md:max-w-[1000px] md:px-8 xl:max-w-[1170px]'>
       <div className="bg-white flex md:hidden  justify-between items-center p-4 rounded-[1.5rem]">
@@ -108,7 +109,7 @@ extractTextFromPDF(pdfData);
             </h2>
             <h2 className="capitlize font-semibold text-green-500">good</h2>
           </div>
-          <h3 className="text-primary700">evaluation date</h3>
+          <h4 className="text-primary700">evaluated on {currentDate}</h4>
         </div>
         <div>
           <span>
@@ -167,10 +168,7 @@ extractTextFromPDF(pdfData);
             </div>
             {/* <div> */}
             <CriteriaComponent />
-            <button
-          
-              className="bg-white p-2 rounded-full hidden  items-center gap-x-2 font-semibold xl:flex text-[#6947BF]"
-            >
+            <button className="bg-white p-2 rounded-full hidden  items-center gap-x-2 font-semibold xl:flex text-[#6947BF]">
               <span className="mb-0 font-semibold capitalize">
                 check detailed evaluation{" "}
               </span>
@@ -190,7 +188,9 @@ extractTextFromPDF(pdfData);
               </h2>
               <h2 className="capitlize font-semibold text-green-500">good</h2>
             </div>
-            <h3 className="text-primary700">evaluation</h3>
+            <h3 className="text-primary700 text-sm ">
+               evaluated on {currentDate}
+            </h3>
           </div>
           <div>
             <ProgressBar total={20} score={totalScore} />
