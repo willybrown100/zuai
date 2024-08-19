@@ -85,7 +85,7 @@ export default function NavLinks() {
           />
         </svg>
       ),
-      id: 3,
+      id: 4,
       path:"faq"
     },
   ];

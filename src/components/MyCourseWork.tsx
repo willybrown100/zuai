@@ -217,12 +217,12 @@ export default function MyCourseWork() {
   useEffect(() => {
     fetchDataFromLocalStorage();
 
-    // Custom event listener for data updates
+    //for Custom event listener for data updates
     const handleDataUpdate = () => {
       fetchDataFromLocalStorage();
     };
 
-    // Listen for custom event
+    //for Listen for custom event
     window.addEventListener("dataUpdated", handleDataUpdate);
 
     return () => {
@@ -230,7 +230,7 @@ export default function MyCourseWork() {
     };
   }, []);
 
-  // Process the PDF data whenever the file state changes
+  //for Processing the PDF data whenever the file state changes
   useEffect(() => {
     if (file.length > 0) {
       const pdfData = file[0].pdfFile;

@@ -80,7 +80,7 @@ router.push("/evaluation")
           if (typeof reader.result === "string") {
             const base64= reader.result.split(",")[1];
             // localStorage.setItem("pdf",base)
-            updatePdfFile(base64); // Ensure result is a string
+            updatePdfFile(base64); 
         }
       };
       reader.readAsDataURL(file);
@@ -97,7 +97,7 @@ router.push("/evaluation")
           const pdfFilez = files[0];
           if (pdfFilez.type === "application/pdf") {
             try {
-              setFileName(pdfFilez.name); // Display file name
+              setFileName(pdfFilez.name); 
               localStorage.setItem("fileName", pdfFilez.name);
               const arrayBuffer = await pdfFilez.arrayBuffer();
               const uint8Array = new Uint8Array(arrayBuffer);
@@ -116,7 +116,7 @@ router.push("/evaluation")
           }
         }
 
-        setIsLoading(false); // Hide loading indicator
+        setIsLoading(false); 
       },
       []
     );
@@ -133,7 +133,7 @@ router.push("/evaluation")
           <div className="bg-white  rounded-[1.4rem] ">
             <div
               style={{
-                backgroundColor: isDragOver ? "#e0e0e0" : "#f9f9f9", // Change color on drag over
+                backgroundColor: isDragOver ? "#e0e0e0" : "#f9f9f9", 
                 transition: "background-color 0.3s ease",
               }}
               onDragEnter={handleDragEnter}
@@ -189,11 +189,11 @@ router.push("/evaluation")
                   className="inline-block px-2  text-primary700 "
                 >
                   <option>CourseWork Type</option>
-                  <option>kk</option>
-                  <option>kk</option>
+                  <option>literature</option>
+                  <option>maths</option>
                 </select>
               </div>
-              <div className="bg-white py-2 rounded-full px-2">
+              <div className="bg-white inline-block py-2 rounded-full px-2">
                 <select
                   value={subject}
                   onChange={(e) => setSubject(e.target.value)}
@@ -237,110 +237,6 @@ router.push("/evaluation")
 
 
 
-
-
-// const DropArea: React.FC = () => {
-//   const { pdfFile, updatePdfFile } = useStore();
-//   const [isLoading, setIsLoading] = useState(false);
-//   const [isDragOver, setIsDragOver] = useState(false);
-//   const [fileName, setFileName] = useState<string | null>(null);
-//   // console.log(pdfFile);
-//   const preventDefaults = (e: React.DragEvent) => {
-//     e.preventDefault();
-//     e.stopPropagation();
-//   };
-
-//   const handleDragEnter = (e: React.DragEvent<HTMLDivElement>) => {
-//     preventDefaults(e);
-//     setIsDragOver(true);
-//   };
-
-//   const handleDragLeave = (e: React.DragEvent<HTMLDivElement>) => {
-//     preventDefaults(e);
-//     setIsDragOver(false);
-//   };
-
-//   const handleDrop = useCallback(async (e: React.DragEvent<HTMLDivElement>) => {
-//     preventDefaults(e);
-//     setIsDragOver(false);
-//     setIsLoading(true); // Show loading indicator
-
-//     const files = e.dataTransfer.files;
-//     if (files.length > 0) {
-//       const pdfFilez = files[0];
-//       if (pdfFilez.type === "application/pdf") {
-//         try {
-//           setFileName(pdfFilez.name); // Display file name
-//           const arrayBuffer = await pdfFilez.arrayBuffer();
-//           const uint8Array = new Uint8Array(arrayBuffer);
-//           // onFileDrop(uint8Array);
-
-//           // Convert Uint8Array to Base64 and store in localStorage
-//           const base64String = arrayBufferToBase64(uint8Array);
-//           // localStorage.setItem("pdfFile", base64String);
-//           updatePdfFile(base64String);
-//           console.log("PDF stored in localStorage.");
-//         } catch (error) {
-//           console.error("Error processing PDF:", error);
-//         }
-//       } else {
-//         alert("Please drop a PDF file.");
-//       }
-//     }
-
-//     setIsLoading(false); // Hide loading indicator
-//   }, []);
-
-//   return (
-//     <div
-//       onDragEnter={handleDragEnter}
-//       onDragOver={preventDefaults}
-//       onDragLeave={handleDragLeave}
-//       onDrop={handleDrop}
-//       style={{
-//         width: "100%",
-//         // maxWidth: "400px",
-//         height: "200px",
-//         // border: "2px dashed #ccc",
-//         // borderRadius: "10px",
-//         textAlign: "center",
-//         lineHeight: "200px",
-//         // color: "#aaa",
-//         // fontSize: "18px",
-//         // margin: "50px auto",
-//         // cursor: "pointer",
-//         position: "relative",
-//         backgroundColor: isDragOver ? "#e0e0e0" : "#f9f9f9", // Change color on drag over
-//         transition: "background-color 0.3s ease",
-//       }}
-//     >
-//       {isLoading ? (
-//         <div
-//           style={{
-//             position: "absolute",
-//             top: "50%",
-//             left: "50%",
-//             transform: "translate(-50%, -50%)",
-//             fontSize: "24px",
-//           }}
-//         >
-//           Processing...
-//         </div>
-//       ) : fileName ? (
-//         <div>
-//           <div>{fileName}</div>
-//           <div>PDF loaded successfully!</div>
-//         </div>
-//       ) : (
-//         "Drag and drop a PDF file here"
-//       )}
-//     </div>
-//   );
-// };
-
-
-
-
 const arrayBufferToBase64 = (buffer: Uint8Array): string => {
   let binary = "";
   const len = buffer.byteLength;
@@ -350,167 +246,5 @@ const arrayBufferToBase64 = (buffer: Uint8Array): string => {
   return window.btoa(binary);
 };
 
-// interface DropAreaProps {
-//   onFileDrop: (file: Uint8Array) => void;
-// }
-
-// const DropArea: React.FC<DropAreaProps> = ({ onFileDrop }) => {
-//   const [isLoading, setIsLoading] = useState(false);
-
-//   const preventDefaults = (e: React.DragEvent) => {
-//     e.preventDefault();
-//     e.stopPropagation();
-//   };
-
-//   const handleDrop = useCallback(
-//     async (e: React.DragEvent<HTMLDivElement>) => {
-//       preventDefaults(e);
-//       setIsLoading(true); // Set loading to true
-
-//       const files = e.dataTransfer.files;
-//       if (files.length > 0) {
-//         const pdfFile = files[0];
-//         if (pdfFile.type === "application/pdf") {
-//           const arrayBuffer = await pdfFile.arrayBuffer();
-//           const uint8Array = new Uint8Array(arrayBuffer);
-//           onFileDrop(uint8Array);
-
-//           // Convert Uint8Array to Base64 and store in localStorage
-//           const base64String = arrayBufferToBase64(uint8Array);
-//           localStorage.setItem("pdfFile", base64String);
-//           console.log("PDF stored in localStorage.");
-//         } else {
-//           alert("Please drop a PDF file.");
-//         }
-//       }
-
-//       setIsLoading(false); // Set loading to false after processing
-//     },
-//     [onFileDrop]
-//   );
-
-//   return (
-//     <div
-//       onDragEnter={preventDefaults}
-//       onDragOver={preventDefaults}
-//       onDragLeave={preventDefaults}
-//       onDrop={handleDrop}
-//       style={{
-//         width: "100%",
-//         maxWidth: "400px",
-//         height: "200px",
-//         border: "2px dashed #ccc",
-//         borderRadius: "10px",
-//         textAlign: "center",
-//         lineHeight: "200px",
-//         color: "#aaa",
-//         fontSize: "18px",
-//         margin: "50px auto",
-//         cursor: "pointer",
-//         position: "relative",
-//         backgroundColor: "#f9f9f9",
-//       }}
-//     >
-//       {isLoading ? (
-//         <div
-//           style={{
-//             position: "absolute",
-//             top: "50%",
-//             left: "50%",
-//             transform: "translate(-50%, -50%)",
-//             fontSize: "24px",
-//           }}
-//         >
-//           Processing...
-//         </div>
-//       ) : (
-//         "Drag and drop a PDF file here"
-//       )}
-//     </div>
-//   );
-// };
-
-// // Helper function to convert Uint8Array to Base64
-// const arrayBufferToBase64 = (buffer: Uint8Array): string => {
-//   let binary = "";
-//   const len = buffer.byteLength;
-//   for (let i = 0; i < len; i++) {
-//     binary += String.fromCharCode(buffer[i]);
-//   }
-//   return window.btoa(binary);
-// };
-
-// export default DropArea;
 
 
-
-
-
-
-
- 
-
-
-
-
-
-// const Home: React.FC = () => {
-
-//     const handleFileDrop = async (file: Uint8Array) => {
-//         console.log('PDF file dropped!', file);
-//         try {
-//             const wordCount = await getWordCountFromPDF(file);
-//             console.log(`Word count: ${wordCount}`);
-//         } catch (error) {
-//             console.error('Error processing PDF:', error);
-//         }
-//     };
-
-//     useEffect(() => {
-//         // Retrieve and log the stored PDF from localStorage on page load
-//         const storedPdfBase64 = localStorage.getItem('pdfFile');
-//         if (storedPdfBase64) {
-//             try {
-//                 const pdfArrayBuffer = base64ToUint8Array(storedPdfBase64);
-//                 console.log('Retrieved PDF from localStorage', pdfArrayBuffer);
-//             } catch (error) {
-//                 console.error('Error decoding Base64 string:', error);
-//             }
-//         }
-//     }, []);
-
-//     return (
-//         <div>
-//             <h1>Drag and Drop PDF Example</h1>
-//             <DropArea onFileDrop={handleFileDrop} />
-//         </div>
-//     );
-// };
-
-
-// // Example getWordCountFromPDF function
-// async function getWordCountFromPDF(pdfArray: Uint8Array): Promise<number> {
-//     // Assume extractTextFromPDF is a function that extracts text from the PDF
-//     const textContent = await extractTextFromPDF(pdfArray);
-//     const wordCount = textContent
-//         .split(/\s+/)
-//         .filter((word) => word.length > 0).length;
-//     return wordCount;
-// }
-
-// async function extractTextFromPDF(pdfArray: Uint8Array): Promise<string> {
-//     // This is just a placeholder function
-//     // Replace this with actual PDF.js code to extract text
-//     return "Extracted text from PDF";
-// }
-
-// // Helper function to convert Base64 back to Uint8Array
-// const base64ToUint8Array = (base64: string): Uint8Array => {
-//     const binaryString = window.atob(base64);
-//     const len = binaryString.length;
-//     const bytes = new Uint8Array(len);
-//     for (let i = 0; i < len; i++) {
-//         bytes[i] = binaryString.charCodeAt(i);
-//     }
-//     return bytes;
-// };
