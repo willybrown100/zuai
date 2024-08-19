@@ -397,7 +397,7 @@ interface ProgressBarProps {
   total: number | null;
 }
 
-export const ProgressBar: React.FC<ProgressBarProps> = ({ score, total }) => {
+ const ProgressBar: React.FC<ProgressBarProps> = ({ score, total }) => {
   // Default to 0 if score or total is null
   const actualScore = score ?? 0;
   const actualTotal = total ?? 1; // Avoid division by zero
