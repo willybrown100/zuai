@@ -21,7 +21,7 @@ import { toolbarPlugin } from '@react-pdf-viewer/toolbar';
 import { zoomPlugin } from '@react-pdf-viewer/zoom';
 import "@react-pdf-viewer/core/lib/styles/index.css";
 import "@react-pdf-viewer/default-layout/lib/styles/index.css";
-import { base64ToBlob, getCurrentDateString } from "@/utils/utils";
+import {  getCurrentDateString } from "@/utils/utils";
 // Setting the worker source
 
 export default function Evaluationpage() {
@@ -363,7 +363,7 @@ const handleToggle=function(){
 // =======================
 
 // Function to convert Base64 string to Uint8Array
-export function base64ToUint8Array(base64: string): Uint8Array {
+ function base64ToUint8Array(base64: string): Uint8Array {
   const binaryString = atob(base64);
   const len = binaryString.length;
   const bytes = new Uint8Array(len);
