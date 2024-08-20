@@ -4,6 +4,7 @@ import * as pdfjsLib from "pdfjs-dist";
 import { pdfjs } from "react-pdf";
 import { GlobalWorkerOptions } from "pdfjs-dist";
 // pdfjs.GlobalWorkerOptions.workerSrc = `https:/cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+// pdfjs.GlobalWorkerOptions.workerSrc="https://unpkg.com/pdfjs-dist@2.16/legacy/build/pdf.worker.min.mjs"
 
 // Function to convert Base64 string to Uint8Array
 

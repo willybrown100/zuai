@@ -146,7 +146,7 @@ export const PdfViewer: React.FC<{ pdfUrl: string }> = ({ pdfUrl }) => {
           )}
 
           {toggle && (
-            <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.16/build/pdf.worker.min.js">
+            <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.0/build/pdf.worker.min.js">
               <Viewer
                 fileUrl={pdfUrl}
                 plugins={[toolbarPluginInstance, zoomPluginInstance]}
