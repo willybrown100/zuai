@@ -213,7 +213,7 @@ const handleToggle=function(){
   setToggle(!toggle);
 }
     // const { pdfFile, updatePdfFile, fileName, setFileName } = useStore();
-    console.log(fileName)
+   
   const zoomPluginInstance = zoomPlugin();
   const toolbarPluginInstance = toolbarPlugin();
   const { Toolbar } = toolbarPluginInstance;
@@ -387,7 +387,7 @@ async function extractTextFromPDF(pdfArray: Uint8Array): Promise<string> {
     const exreactedScores=extractScoresFromText(textContent);
     console.log(exreactedScores)
     localStorage.setItem("userScores", JSON.stringify(exreactedScores));
-    console.log(textContent)
+   
   }
 
   return textContent;
