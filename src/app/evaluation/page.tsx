@@ -53,11 +53,12 @@ export default function Evaluationpage() {
   // Now you can use pdfjsLib to load PDFs
   useEffect(() => {
     // Step 1: Retrieve the stringified object from local storage
+
     const storedObjString = localStorage.getItem("otherData"); 
 
     // 'pdfData' is the key used to store the object
     const storedUserScore = localStorage.getItem("userScores"); // 'pdfData' is the key used to store the object
-    if (storedUserScore){
+    if (storedUserScore ){
       const convertToObj = JSON.parse(storedUserScore)
       console.log(storedUserScore, convertToObj);
 setCriteriaA(convertToObj.criteriaA)

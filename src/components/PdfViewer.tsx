@@ -2,15 +2,22 @@
 import { Viewer, Worker } from "@react-pdf-viewer/core";
 import { toolbarPlugin } from "@react-pdf-viewer/toolbar";
 import { zoomPlugin } from "@react-pdf-viewer/zoom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BiRightArrowAlt } from "react-icons/bi";
 
 export const PdfViewer: React.FC<{ pdfUrl: string }> = ({ pdfUrl }) => {
-  const fileName = localStorage.getItem("fileName");
-  const [toggle, setToggle] = useState(true);
-  const handleToggle = function () {
-    setToggle(!toggle);
-  };
+    const [fileName,setFileName]=useState<string|null>(null)
+    useEffect(()=>{
+if(typeof window !== "undefined"){
+
+    const fileNamez = localStorage.getItem("fileName");
+    setFileName(fileNamez);
+}
+    })
+        const [toggle, setToggle] = useState(true);
+        const handleToggle = function () {
+            setToggle(!toggle);
+        };
   // const { pdfFile, updatePdfFile, fileName, setFileName } = useStore();
 
   const zoomPluginInstance = zoomPlugin();
