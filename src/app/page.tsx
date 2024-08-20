@@ -1,7 +1,7 @@
 import CourseWorkForm from '@/components/CourseWorkForm';
 import MyCourseWork from '@/components/MyCourseWork';
 import CustomTabs from '@/components/TabbedSection';
-import ExampleTabs from '@/components/TabbedSection';
+
 
 import Image from 'next/image';
 import React from 'react'
