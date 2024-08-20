@@ -14,10 +14,9 @@ import "react-circular-progressbar/dist/styles.css";
 import * as pdfjsLib from "pdfjs-dist";
 import useStore from '@/store';
 import CriteriaItem from '@/components/CriteriaItem';
-pdfjs.GlobalWorkerOptions.workerSrc =
-  "https://unpkg.com/pdfjs-dist@4.4.168/legacy/build/pdf.worker.min.mjs";
 
-// pdfjs.GlobalWorkerOptions.workerSrc = `https:/cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`
+
+pdfjs.GlobalWorkerOptions.workerSrc = `https:/cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`
 import '@react-pdf-viewer/core/lib/styles/index.css';
 import '@react-pdf-viewer/default-layout/lib/styles/index.css';
 import { toolbarPlugin } from '@react-pdf-viewer/toolbar';
@@ -326,7 +325,7 @@ const handleToggle=function(){
                         fill="#5B6170"
                       />
                     </svg>
-                    <text className="text-primary700 text-sm">collapse</text>
+                    <span className="text-primary700 text-sm">collapse</span>
                   </button>
                 </div>
               </div>
@@ -349,7 +348,7 @@ const handleToggle=function(){
           )}
 
           {toggle && (
-            <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.0/build/pdf.worker.min.js">
+            <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.16/build/pdf.worker.min.js">
               <Viewer
                 fileUrl={pdfUrl}
                 plugins={[toolbarPluginInstance, zoomPluginInstance]}
