@@ -11,7 +11,7 @@ export default function Logo() {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <g clip-path="url(#clip0_2_5361)">
+        <g clipPath="url(#clip0_2_5361)">
           <path
             d="M9.1215 12.3388H13.8307V14.9953H5.55078V12.8563L10.1737 5.57689H5.63703V2.92041H13.7445V5.05939L9.1215 12.3388Z"
             fill="#1E2026"
